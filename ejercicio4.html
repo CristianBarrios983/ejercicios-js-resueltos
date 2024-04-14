@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+        */
+
+
+        // Resolucion:
+
+        // Basica:
+        /*
+        function repetirTexto(t,c){
+            for(i=0; i<c; i++){
+                console.log(t);
+            }
+        }
+        repetirTexto("Hola",4);
+        */
+
+
+        // Con validacion:
+        function repetirTexto(t,c){
+            if(typeof t === "string"){
+                if(t.length > 0){
+                    if(typeof c === "number"){
+                        if(c > 0){
+                            for(i=0; i<c; i++){
+                                console.log(t);
+                            }
+                        }else{
+                            console.error("El segundo valor no puede ser menor o igual a 0");
+                        }
+                    }else{
+                        console.error("El segundo valor no es un numero");
+                    }
+                }else{
+                    console.error("El texto no debe estar vacio");
+                }
+            }else{
+                console.error("El texto que se va a repetir no es tipo String")
+            }
+        }
+        repetirTexto(2,4);
+        repetirTexto("",4);
+        repetirTexto("Hola","4");
+        repetirTexto("Hola",-4);
+        repetirTexto("Hola",4);
+    </script>
+</body>
+</html>

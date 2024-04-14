@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+        */
+
+        // Resolucion:
+
+        // Basica
+        /*
+        function numeroCaracteres(cadena){
+            console.log(cadena.length);   
+        }
+        numeroCaracteres("Hola Mundo");
+        */
+
+
+        // Con un propmt
+        /*
+        let cadena = prompt("Ingrese una cadena de texto o numero");
+
+        function numeroCaracteres(cadena){
+            console.log(cadena.length);   
+        }
+        numeroCaracteres(cadena);
+        */
+
+        // Con validacion:
+        function numeroCaracteres(cadena){
+            let validacion = typeof cadena;
+            // Valida si es cadena
+            if(validacion==="string"){
+                // Valida si no esta vacia
+                if(cadena.length < 1){
+                    console.warn("No puede estar vacio");
+                }else{
+                    console.log(cadena.length);   
+                }
+            }else{
+                console.error("No es una cadena de texto");
+            }
+        }
+        numeroCaracteres(true);
+        numeroCaracteres("");
+        numeroCaracteres("Hola Mundo");
+
+    </script>
+</body>
+</html>

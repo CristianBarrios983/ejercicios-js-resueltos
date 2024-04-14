@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <script>
+
+/*
+        Ejercicio:
+        Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+        const cadena = "Hola Mundo";
+        */
+
+        //Resolucion:
+
+        // Basica:
+        /*
+        function textoRecortado(texto,numero){
+            let resultado = [];
+            for(i=0;i<=numero;i++){
+                // console.log(texto[i]);
+                resultado.push(texto[i]);
+            }
+
+            console.log(resultado.join("").toString());
+        }
+        textoRecortado("Hola Mundo",4);
+        */
+
+        // Con validacion: 
+        function textoRecortado(texto,numero){
+            if(typeof texto === "string"){
+                if(texto.length > 0){
+                    if(typeof numero === "number"){
+                        if(numero > 0){
+                            let resultado = [];
+                            for(i=0;i<=numero;i++){
+                                // console.log(texto[i]);
+                                resultado.push(texto[i]);
+                            }
+
+                            console.log(resultado.join("").toString());
+                        }else{
+                            console.error("El numero de caracteres ingresados no puede menor o igual a 0");
+                        }
+                    }else{
+                        console.error("El numero de caracteres ingresados no es un numero")
+                    }
+                }else{
+                    console.error("La cadena no puede estar vacia");
+                }
+            }else{
+                console.error("El texto ingresado no es una cadena de texto");
+            }
+        }
+        textoRecortado(true,4);
+        textoRecortado("",4);
+        textoRecortado("Hola Mundo","4");
+        textoRecortado("Hola Mundo",0);
+        textoRecortado("Hola Mundo",4);
+    </script>
+</body>
+</html>
+
