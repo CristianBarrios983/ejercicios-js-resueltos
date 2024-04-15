@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+        */
+
+        // Resolucion: 
+        const eliminarPatrones = (texto="", patron="") =>{
+
+            if(!texto && !patron){
+                return console.warn("No ingresaste texto ni patron");
+            }
+
+            if(typeof texto !== "string" && typeof patron !== "string"){
+                return console.error("El texto y patron deben ser tipo String");
+            }
+
+            if(!texto){
+                return console.warn("No ingresaste ningun texto");
+            }
+
+            if(typeof texto !== "string"){
+                return console.error("El texto debe ser String");
+            }
+            
+            if(!patron){
+                return console.warn("No ingresaste ningun patron");
+            }
+
+            if(typeof patron !== "string"){
+                return console.error("El patron debe ser String");
+            }
+
+            let expReg = RegExp(patron,"g")
+            let nuevaCadena=texto.replace(expReg, "");
+            if(nuevaCadena === texto){
+                console.warn("No hubo coincidencias encontradas con el patron ingresado");
+                console.log(nuevaCadena);
+            }else{
+                console.log(nuevaCadena);
+            }
+        }
+
+        eliminarPatrones("","");
+        eliminarPatrones(false,3);
+        eliminarPatrones("Hola soy Cristiano Ronaldo","");
+        eliminarPatrones("","o");
+        eliminarPatrones([],"o");
+        eliminarPatrones("Hola soy Cristiano Ronaldo",{});
+        eliminarPatrones("Hola soy Cristiano Ronaldo","o");
+        eliminarPatrones("Hola soy Lionel Messi","i");
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+        */
+
+
+        // Resolucion:
+        function buscarPalabrasRepetidas(cadena="",coincidencia=""){
+
+            if(!cadena && !coincidencia){
+                return console.error("No ingresaste una cadena ni coincidencia");
+            }
+
+            if(typeof cadena !== "string" && typeof coincidencia !== "string"){
+                return console.warn("La cadena de texto y la coincidencia deben ser strings");
+            }
+
+            if(!cadena){
+                return console.warn("No ingresaste una cadena");
+            }
+
+            if(typeof cadena !== "string"){
+                return console.warn("La cadena de texto debe ser string");
+            }
+
+            if(!coincidencia){
+                return console.warn("No ingresaste una coincidencia");
+            }
+
+            if(typeof coincidencia !== "string"){
+                return console.warn("La coincidencia debe ser string");
+            }
+                
+            let texto = cadena.split(" ");
+            let contador = 0;
+            //console.log(texto);
+
+            for(let i = 0; i < texto.length; i++){
+                // if (texto[i].includes(coincidencia)){ //encuentra coincidencia
+                //     contador++;
+                // }
+                if (texto[i]===coincidencia){ //verifica si la palabra es igual
+                    contador++;
+                }
+            }
+
+            if(contador > 0){
+                return console.log(`Hubo ${contador} coincidencias con esa palabra`);
+            }else{
+                return console.log("No hubo coincidencias");
+            }
+        }
+
+        buscarPalabrasRepetidas("lorem ipsum lorem","lorem");
+        buscarPalabrasRepetidas("","lorem");
+        buscarPalabrasRepetidas("","");
+        buscarPalabrasRepetidas("lorem","");
+        buscarPalabrasRepetidas(true,"lorem");
+        buscarPalabrasRepetidas("Hola",true);
+        buscarPalabrasRepetidas("lorem ipsum set dolor","lorem");
+        buscarPalabrasRepetidas(false,8);
+    </script>
+</body>
+</html>

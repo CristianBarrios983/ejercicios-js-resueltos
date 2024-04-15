@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+        */
+
+        // Resolucion:
+        const saberFrasePalindromo = (frase="") =>{
+            if(!frase){
+                return console.warn("No ingresaste una frase");
+            }
+
+            if(typeof frase !== "string"){
+                return console.error("La frase debe ser una cadena de texto");
+            }
+
+            let conversion = frase.split(""); //Convertir a array
+            let nuevaCadena = []; //creando nueva cadena
+
+            for (let i = conversion.length; i >= 0; i--) {
+                nuevaCadena.push(frase[i]);
+            }
+
+            let convertirAMinusculas = nuevaCadena.toString(); //Transformando Array a String
+            let quitarMinusculas = convertirAMinusculas.replace(/,/g, "");
+                
+            if(quitarMinusculas.toLowerCase() === frase.toLowerCase()){
+                console.log(true);
+            }else{
+                console.log(false);
+            }
+        }
+
+        saberFrasePalindromo("");
+        saberFrasePalindromo(34);
+        saberFrasePalindromo("Salas");
+        saberFrasePalindromo("Hola");
+        saberFrasePalindromo("Sos");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+        */
+
+        // Resolucion:
+        function invertirPalabras(cadena = ""){
+            if(!cadena){
+                return console.warn("No ingresaste una cadena");
+            }
+
+            if(typeof cadena !== "string"){
+                return console.error("La cadena debe ser un String, no otro tipo de dato");
+            }
+
+            let conversion = cadena.split(""); //Convierto cadena a string
+                let cantidad = conversion.length; //Saco la cantidad de datos
+                //console.log(conversion);
+                //console.log(conversion.length);
+                let cadenaNueva = []; //variable para datos nuevos
+
+                for (let i = cantidad; i >= 0; i--) {
+                    //const element = array[index];
+                    //console.log(conversion[i]);
+                    cadenaNueva.push(cadena[i]);
+                }
+                let cadenaFinal = cadenaNueva.toString(); //Transformando array a string
+                console.log(cadenaFinal.replace(/,/g, " ")); //Quitando comas y reeemplazando por espacios
+        }
+
+        invertirPalabras("Hola Mundo");
+        invertirPalabras("");
+        invertirPalabras();
+        invertirPalabras(34);
+        invertirPalabras(true);
+        invertirPalabras("Aloh");
+    </script>
+</body>
+</html>
