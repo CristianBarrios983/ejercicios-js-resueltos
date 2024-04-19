@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+</head>
+<body>
+    <script>
+        /*Ejercicio: 
+        Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true. */
+
+        
+        // Solucion:
+        const numerosPrimos = (numero=undefined) => {
+            if(numero===undefined) return console.warn("No has ingresado un numero");
+
+            if(numero<=1) return console.warn("Procure que sea mayor a 1");
+
+            if(typeof numero !== "number") return console.error("Debe ser un numero");
+
+
+            for(let i=2; i<numero; i++){
+                if(numero % i === 0){
+                    return console.log(false);
+                }
+            }
+            return console.log(true);
+
+        }
+
+        numerosPrimos();
+        numerosPrimos(1);
+        numerosPrimos(0);
+        numerosPrimos(-3);
+        numerosPrimos("4");
+        numerosPrimos(4);
+        numerosPrimos(3);
+        numerosPrimos(5);
+        numerosPrimos(6);
+        numerosPrimos(7);
+        numerosPrimos(8);
+        numerosPrimos(9);
+        numerosPrimos(10);
+        numerosPrimos(11);
+    </script>
+</body>
+</html>

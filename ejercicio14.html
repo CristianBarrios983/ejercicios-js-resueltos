@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14</title>
+</head>
+<body>
+    <script>
+        /* Ejercicio: Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F. */
+
+        // Solucion:
+        const transformarGrados = (grados=0,tipo="") =>{
+            if(!grados && !tipo) return console.warn("No ingresaste los grados ni el tipo que desea convertir");
+
+            if(typeof grados !== "number") return console.error("Los grados deben ser numerico");
+
+            if(!tipo) return console.warn("No ingresaste el tipo al que desea convertir");
+
+            if(typeof tipo !== "string") return console.error("El tipo de conversion debe ser cadena de texto");
+
+            if(tipo!=="C" && tipo!=="F") return console.warn("El tipo a que sea convertir no es valido. Recuerde, es C (gradoscentigrados) o F(gradosfarenheit)");
+
+            let conversionACentigrados = ((grados-32)*5)/9;
+            let conversionAFarenheit = ((grados*9)/5)+32;
+
+            return (tipo==="F")
+                ? console.info(`La conversion de ${grados}°C a a farenheit es: ${conversionAFarenheit}°F`)
+                : console.info(`La conversion de ${grados}°F a a centigrados es: ${conversionACentigrados}°C`)
+        }
+
+        transformarGrados();
+        transformarGrados(10,"");
+        transformarGrados(0,"F");
+        transformarGrados(10,"F");
+        transformarGrados(10,"C");
+        transformarGrados(35,"C");
+    </script>
+</body>
+</html>
