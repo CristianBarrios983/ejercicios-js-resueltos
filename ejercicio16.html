@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 16</title>
+</head>
+<body>
+    <script>
+        /*Ejercicio: Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800*/
+
+        // Solucion:
+        const calcularMonto = (precioTotal=undefined,descuento=undefined)=>{
+            if(precioTotal===undefined) return console.warn("No se ingreso ningun precio");
+
+            if(typeof precioTotal !== "number") return console.error("El precio debe ser un numero");
+
+            if(descuento===undefined) return console.warn("No se ingreso ningun tipo de descuento");
+
+            if(typeof descuento !== "number") return console.error("El descuento debe ser un numero");
+
+            let calcularDescuento=(precioTotal*descuento)/100;
+            let precioNuevo=precioTotal-calcularDescuento;
+            console.log(`Se ha realizado un descuento del ${descuento}% a su compra. Precio original: ${precioTotal}, con descuento: ${precioNuevo}`);
+        }
+
+        calcularMonto();
+        calcularMonto(1000);
+        calcularMonto("1000");
+        calcularMonto(1000,"50");
+        calcularMonto(1000,25);
+        calcularMonto(5000,30);
+    </script>
+</body>
+</html>

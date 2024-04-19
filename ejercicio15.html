@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 15</title>
+</head>
+<body>
+    <script>
+        /*Ejercicio: Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10*/
+
+        // Solucion:
+        const convertirNumeros = (numeros=undefined, cambio=undefined) =>{
+            if(numeros===undefined) return console.warn("No se ingreso un numero");
+
+            if(typeof numeros!=="number") return console.error("El numero a convertir debe ser numerico");
+
+            if(cambio===undefined) return console.warn("Debe indicar que tipo de cambio desea realizar");
+
+            if(typeof cambio!=="string") return console.error("El segundo valor debe ser una cadena de texto");
+
+            let division = 0;
+            let residuo = 0;
+            let cadena = [];
+
+            if(cambio==="B"){
+                let binario = numeros.toString(2); //Representa a decimal
+                console.log(binario);
+            }else if(cambio==="D"){
+                let decimal = parseInt(numeros,2);
+                console.log(decimal);
+            }else{
+                console.error("Hubo un error en la conversion");
+            }
+
+        }
+
+        convertirNumeros();
+        convertirNumeros(4);
+        convertirNumeros("4");
+        convertirNumeros(4,true);
+        convertirNumeros(10,"B");
+        convertirNumeros(1010,"D");
+        convertirNumeros(101010,"D");
+        convertirNumeros(42,"B");
+        convertirNumeros(100,"D");
+        convertirNumeros(4,"B");
+    </script>
+</body>
+</html>

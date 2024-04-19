@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+</head>
+<body>
+    <script>
+        /*Ejercicio: Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020)*/
+
+
+        // Solucion:
+        const fecha = (year,month,day) =>{
+            if(!year && !month && !day) return console.info("No agrego ninguna fecha");
+
+            if(!year) return console.info("No ingreso el año");
+
+            if(!month) return console.info("No ingreso el mes");
+
+            if(!day) return console.info("No ingreso el dia");
+
+            if(typeof year !== "number" || typeof month !== "number" ||typeof day !== "number") return console.error("La fecha ingresada no puede ser una cadena de texto. Verifique los datos de nuevo");
+
+            console.log("Fecha valida");
+            let fechaInicial = new Date(year,month,day);
+            let fechaActual = new Date();
+
+            let milisegundos = fechaActual - fechaInicial;
+            let cantidadAnios = Math.round(milisegundos /(1000 * 60 * 60 * 24 * 365.25)) //Calculo para considerar año bisiesto
+            
+            console.log(`La cantidad de años transcurridos desde ${fechaInicial.getDate()}-${fechaInicial.getMonth()}-${fechaInicial.getFullYear()} hasta ${fechaActual.getDate()}-${fechaActual.getMonth()}-${fechaActual.getFullYear()} es de ${cantidadAnios} años`);
+
+        }
+
+        fecha();
+        fecha(1999);
+        fecha(1999,8);
+        fecha(1999,8,"1");
+        fecha(2024,8,12);
+
+
+        // Nota: Esta no es la mejor solucion para este ejercicio, es algo que se me ocurrio en ese momento, se puede hacer mejor que esto
+    </script>
+</body>
+</html>
