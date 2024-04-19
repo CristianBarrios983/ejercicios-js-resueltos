@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        Programa una función que obtenga un numero aleatorio entre 501 y 600. */
+
+        // Solucion:
+        const numeroAleatorio = () =>{
+            let min = 501;
+            let max = 600;
+            
+            let randomNum = Math.random()*(max - min)+min; //Obtengo un numero random
+            console.log(parseInt(randomNum));
+            
+        }
+
+        numeroAleatorio();
+    </script>
+</body>
+</html>

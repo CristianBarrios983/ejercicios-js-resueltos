@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <script>
+        /*
+        Ejercicio:
+        Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.*/
+
+        
+        // Solucion:
+        const numeroCapicua = (num=0) =>{
+            if(!num) return console.warn("No se ha recibido un numero");
+
+            if(typeof num !== "number") return console.error("Debe ser un numero");
+            
+            let revertirNumero = num.toString().split("").reverse().join("");
+                
+                if(parseInt(revertirNumero) === num){
+                    console.log(true);
+                }else{
+                    console.log(false);
+                }
+        }
+
+        numeroCapicua();
+        numeroCapicua("63");
+        numeroCapicua(63);
+        numeroCapicua(2002);
+    </script>
+</body>
+</html>
