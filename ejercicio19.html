@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero */
+
+
+        //Solucion:
+        const validarNombre = (nombre="") =>{
+            if(!nombre) return console.info("No ingresaste un nombre");
+
+            if(typeof nombre !== "string") return console.error("El nombre tiene que ser una cadena de texto");
+
+            let regex = /^[a-zA-Z\s]+$/; //Valida si una cadena contiene solo letras, espacios en blanco, guiones y apóstrofes
+            let validacion = regex.test(nombre);
+            
+
+            return(validacion===true)
+                ? console.log(`El nombre ${nombre} es valido`)
+                : console.log(`El nombre ${nombre} es invalido`);
+        }
+
+        validarNombre();
+        validarNombre(434);
+        validarNombre(true);
+        validarNombre("Cristian");
+        validarNombre("Cristian 21");
+        validarNombre("$#%#$F");
+    </script>
+</body>
+</html>
