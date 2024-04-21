@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 22</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60] */
+
+        // Solucion:
+        const numerosMayorMenor = (numeros=undefined)=>{
+            if(numeros === undefined) return console.warn("No ingresaste nada");
+
+            if(numeros.length===0) return console.warn("No has ingresado ningun numero en el array");
+
+            if(Array.isArray(numeros) === false) return console.error("Lo que envio no es un array");
+
+
+            let mayor = numeros[0];
+            let menor = numeros[0];
+
+            for(let i=0; i < numeros.length; i++){
+                    if(numeros[i] > mayor){
+                        mayor = numeros[i];
+                    }
+
+                    if(numeros[i] < menor){
+                        menor = numeros[i];
+                    }
+                }
+
+            return console.log(`El numero mayor es: ${mayor} y el numero menor es: ${menor}`);
+        }
+        numerosMayorMenor();
+        numerosMayorMenor("dwedew");
+        numerosMayorMenor(true);
+        numerosMayorMenor([]);
+        numerosMayorMenor([2,4,6,7,3]);
+        numerosMayorMenor([4,6,8,2,5,8,9,10,34,55,22]);
+    </script>
+</body>
+</html>

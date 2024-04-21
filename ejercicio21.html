@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 21</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25] */
+
+        // Solucion:
+        const elevarNumerosAlCuadrado = (numeros=[]) =>{
+            if(numeros.length===0) return console.warn("No has ingresado ningun numero");
+
+            if(Array.isArray(numeros) === false) return console.error("Lo que envio no es un array de numeros");
+
+            let comprobar = true;
+
+            for(let i=0; i < numeros.length; i++){
+                if(isNaN(numeros[i])){
+                    comprobar = false;
+                }
+            }
+
+            if(comprobar===true){
+                let ArrayNuevo = [];
+
+                for(let i=0; i < numeros.length; i++){
+                    ArrayNuevo.push(numeros[i]*numeros[i]);
+                }
+
+
+                return console.log(`El array anterior es: ${numeros} y el nuevo array con los numeros elevados al cuadrado es: ${ArrayNuevo}`);
+            }else{
+                return console.error("El array contiene otros caracteres no numericos");
+            }
+
+        }
+
+        elevarNumerosAlCuadrado();
+        elevarNumerosAlCuadrado(324);
+        elevarNumerosAlCuadrado([3,3,4,2]);
+        elevarNumerosAlCuadrado([3,"e",3,4,2,"M"]);
+        elevarNumerosAlCuadrado([5,6,9,8]);
+    </script>
+</body>
+</html>

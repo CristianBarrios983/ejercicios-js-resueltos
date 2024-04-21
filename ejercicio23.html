@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 23</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}*/
+
+        // Solucion:
+        const numerosParesImpares = (numeros=undefined) =>{
+            if(numeros === undefined) return console.warn("No ingresaste nada");
+
+            if(numeros.length===0) return console.warn("No has ingresado ningun numero en el array");
+
+            if(Array.isArray(numeros) === false) return console.error("Lo que envio no es un array");
+
+            for(let i=0; i < numeros.length; i++){
+                if(isNaN(numeros[i])){
+                    return console.error("Hay caracteres no numericos en el array");
+                }
+            }
+
+            let pares = [],
+            impares = [];
+
+            for(let i=0; i < numeros.length; i++){
+                if(numeros[i] % 2 === 0){
+                    pares.push(numeros[i]);
+                }else{
+                    impares.push(numeros[i]);
+                }
+            }
+
+            console.log(`Los numeros pares son : ${pares} y los impares: ${impares}`);
+        }
+
+        numerosParesImpares();
+        numerosParesImpares([]);
+        numerosParesImpares(213);
+        numerosParesImpares(true);
+        numerosParesImpares([1,2,3,4,5,6,7,8,9,0,"x"]);
+        numerosParesImpares([1,2,3,4,5,6,7,8,9,0]);
+    </script>
+</body>
+</html>
