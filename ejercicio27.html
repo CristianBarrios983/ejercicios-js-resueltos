@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 27</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio:
+        Programa una clase llamada Pelicula.
+
+        La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+        - Todos los datos del objeto son obligatorios.
+        - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+            7 restantes números.
+        - Valida que el título no rebase los 100 caracteres.
+        - Valida que el director no rebase los 50 caracteres.
+        - Valida que el año de estreno sea un número entero de 4 dígitos.
+        - Valida que el país o paises sea introducidos en forma de arreglo.
+        - Valida que los géneros sean introducidos en forma de arreglo.
+        - Valida que los géneros introducidos esten dentro de los géneros 
+            aceptados*.
+        - Crea un método estático que devuelva los géneros aceptados*.
+        - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+            decimal de una posición.
+        - Crea un método que devuelva toda la ficha técnica de la película.
+        - Apartir de un arreglo con la información de 3 películas genera 3 
+            instancias de la clase de forma automatizada e imprime la ficha técnica 
+            de cada película.
+
+        * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+        */
+
+
+        // Solucion:
+        class Peliculas{
+            constructor(datosPelicula){
+
+                if(!datosPelicula.id || !datosPelicula.titulo || !datosPelicula.director || !datosPelicula.anioEstreno || !datosPelicula.paises || !datosPelicula.genero || !datosPelicula.calificacion) return console.warn("Faltan datos en el objeto. Verifique de nuevo los datos faltantes");
+
+                const validarId = /^[A-Za-z]{2}\d{7}$/;
+
+                if(validarId.test(datosPelicula.id)===false) return console.warn("El id debe contener 9 digitos, los dos primeros letras y el resto numeros");
+
+                if(datosPelicula.titulo.length>100) return console.warn("El titulo no puede rebasar los 100 caracteres");
+
+                if(datosPelicula.director.length>50) return console.warn("El director no puede rebasar los 50 caracteres");
+
+                const validarAnio = /^\d{4}$/;
+
+                if(validarAnio.test(datosPelicula.anioEstreno)===false) return console.error("El año de estreno no es valido");
+
+                if(Array.isArray(datosPelicula.paises)===false) return console.error("El pais o paises deben ser agregados en forma de arreglo");
+
+                if(Array.isArray(datosPelicula.genero)===false) return console.error("El genero o generos deben ser agregados en forma de arreglo");
+
+                const generos = ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+
+                const validarGeneros = () =>{
+                    for(let i=0; i < datosPelicula.genero.length;i++){
+                        if(!generos.includes(datosPelicula.genero[i])){
+                            console.warn(`El genero ${datosPelicula.genero[i]} no esta permitido`);
+                        }
+                    }
+                }
+
+                validarGeneros();
+
+                if(parseFloat(datosPelicula.calificacion) <0 || parseFloat(datosPelicula.calificacion) >10) return console.error("Calificacion incorrecta");
+
+
+                this.id = datosPelicula.id;
+                this.titulo = datosPelicula.titulo;
+                this.director = datosPelicula.director;
+                this.anioEstreno = datosPelicula.anioEstreno;
+                this.paises = datosPelicula.paises;
+                this.genero = datosPelicula.genero;
+                this.calificacion = datosPelicula.calificacion;
+            }
+
+            static generosAceptados(){
+                console.log(`Los generos aceptados son: ${generos}`);
+            }
+
+            fichaPelicula(){
+                console.log("*****Info de Pelicula*****");
+                console.log(`Titulo: ${this.titulo}`);
+                console.log(`Director: ${this.director}`);
+                console.log(`Año de estreno: ${this.anioEstreno}`);
+                console.log(`Paises : ${this.paises}`);
+                console.log(`Generos: ${this.genero}`);
+                console.log(`Calificacion: ${this.calificacion}`);
+
+            }
+        }
+
+        // const datosPelicula1 ={
+        //     id: "ER4567844",
+        //     titulo: "300",
+        //     director: "Zack Snyder",
+        //     anioEstreno: 2006,
+        //     paises: ["EEUU"],
+        //     genero: ["Action","Drama"],
+        //     calificacion: 7.6
+        // };
+
+        // const pelicula1 = new Peliculas(datosPelicula1);
+        // console.log(pelicula1);
+        //Peliculas.generosAceptados();
+        //pelicula1.fichaPelicula();
+
+        const datosPeliculas = [
+            {
+                id: "RT7594734",
+                titulo: "Pelicula1",
+                director: "FREFREFG GER",
+                anioEstreno: 2012,
+                paises: ["EEUU"],
+                genero: ["Action"],
+                calificacion: 5.5
+            },
+            {
+                id: "KL7594734",
+                titulo: "Pelicula2",
+                director: "FREFREFG GER",
+                anioEstreno: 2019,
+                paises: ["EEUU"],
+                genero: ["Family"],
+                calificacion: 5.5
+            },
+            {
+                id: "RE7594734",
+                titulo: "Pelicula3",
+                director: "FREFREFG GER",
+                anioEstreno: 2015,
+                paises: ["EEUU"],
+                genero: ["Romance"],
+                calificacion: 5.5
+            }
+        ];
+
+        datosPeliculas.forEach(function(datosPelicula){
+            const pelicula = new Peliculas(datosPelicula);
+            pelicula.fichaPelicula();
+            console.log(" ");
+        });
+
+    </script>
+</body>
+</html>
