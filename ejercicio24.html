@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 24</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] } */
+
+        // Solucion:
+        const ordenarNumeros = (numeros=undefined) =>{
+            if(numeros===undefined) return console.warn("No has enviado ningun array de numeros");
+
+            if(numeros.length===0) return console.error("No puede estar vacio");
+
+            if(Array.isArray(numeros) === false) return console.error("Lo que envio no es un array");
+
+            let ascendente = numeros.sort(function(a,b){return a-b;}),
+            descendente = numeros.slice().reverse();
+
+            let ordenArrays ={
+                numerosAscendente: ascendente,
+                numerosDescendentes: descendente
+            }
+
+            console.log(ordenArrays);
+
+
+        }
+        ordenarNumeros();
+        ordenarNumeros([]);
+        ordenarNumeros(true);
+        ordenarNumeros(342);
+        ordenarNumeros([4,7,6,3,8,7]);
+        ordenarNumeros([34,55,23,64,58,79,10,57]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 26</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5 */
+
+
+        // Solucion:
+        const calcularPromedio = (array=undefined) =>{
+            if(array===undefined) return console.warn("No ingresaste nada");
+
+            if(array.length===0) return console.error("El array esta vacio");
+
+            if(Array.isArray(array) === false) return console.error("Lo que envio no es un array");
+
+            if(array.every(elemento => typeof elemento === 'number')){
+                let suma=0,
+                promedio =0,
+                contador=0;
+
+                for(let i=0; i<array.length; i++){
+                    contador++;
+                    suma=suma+array[i];
+                }
+
+                promedio=(suma*contador)/100;
+
+                return console.log(`El promedio de los numeros del array es: ${promedio}`);
+            }else{
+                return console.error("El array contiene otros datos que no son numeros");
+            }
+
+            
+        }
+
+        calcularPromedio();
+        calcularPromedio([]);
+        calcularPromedio(324);
+        calcularPromedio([3,5,7,6,4,3,"m"]);
+        calcularPromedio([4,6,true,4]);
+        calcularPromedio([3,5,7,6,4,3]);
+        calcularPromedio([9,8,7,6,5,4,3,2,1,0]);
+
+
+    </script>
+</body>
+</html>

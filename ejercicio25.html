@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 25</title>
+</head>
+<body>
+    <script>
+
+        /*Ejercicio: Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true] */
+
+
+        // Solucion:
+        const eliminarDuplicados = (elementos=undefined) =>{
+            if(elementos===undefined) return console.warn("No ingresaste nada");
+
+            if(elementos.length===0) return console.error("Esta vacio");
+
+            if(Array.isArray(elementos) === false) return console.error("Lo que envio no es un array");
+
+            let arrayNuevo = [...new Set(elementos)];
+
+            return console.log({
+                arrayOriginal: elementos,
+                arrayNuevo 
+            });
+        }
+
+        eliminarDuplicados();
+        eliminarDuplicados([]);
+        eliminarDuplicados(true);
+        eliminarDuplicados([3,5,4,7,8,6,2,2]);
+        eliminarDuplicados(["x", 10, "x", 2, "10", 10, true, true]);
+    </script>
+</body>
+</html>
